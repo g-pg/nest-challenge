@@ -19,15 +19,16 @@ Há três níveis de usuários:
 - `reader`: podem ler quaisquer posts.
 
 Qualquer usuário pode criar uma conta enviando um POST a `/user`, mas o seu role será automaticamente `reader`.
-Um usuário admin pode editar o role de outros usuários.
+Um usuário `admin` pode editar o role de outros usuários na rota correspondente.
 
 ## Setup
 
-- Instalar as dependências da aplicação:
+- Clonar ou baixar o zip deste repositório.
+- Instalar as dependências da aplicação na pasta raiz:
   ```bash
   $ pnpm install
   ```
-- Criar um `.env` na pasta raiz do projeto, conforme o `.env.example`.
+- Criar um `.env` na pasta raiz conforme o `.env.example` (os valores do exemplo estão preparados para funcionar localmente).
 - Rodar `docker compose up -d` na raiz do projeto para subir uma imagem do Postgres.
   - Opcional: remover volume do compose para evitar conflito com outros volumes.
 - Compilar e rodar o projeto:
