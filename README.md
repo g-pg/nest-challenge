@@ -35,7 +35,7 @@ Um usuário admin pode editar o role de outros usuários.
   ```bash
   # production
   pnpm build
-  pnmp start
+  pnmp start:prod
 
   # development
   pnpm start:dev
