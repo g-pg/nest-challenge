@@ -33,7 +33,7 @@ export class PostRepository {
     await this.ormPostRepo.save(ormPost);
   }
 
-  async findAll(dto: SearchPostDTO): Promise<PostDTO[]> {
+  async findAll(dto: SearchPostDTO): Promise<Post[]> {
     const query = this.ormPostRepo
       .createQueryBuilder('post')
       .leftJoinAndSelect('post.author', 'author')
@@ -60,7 +60,7 @@ export class PostRepository {
       return [];
     }
 
-    return posts.map((p) => PostMapper.toDTO(this._toDomain(p) as Post));
+    return posts.map((p) => this._toDomain(p) as Post);
   }
 
   async findById(id: string): Promise<Post | null> {

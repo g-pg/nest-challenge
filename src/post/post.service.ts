@@ -32,7 +32,8 @@ export class PostService {
   }
 
   async getAll(dto: SearchPostDTO): Promise<PostDTO[]> {
-    return await this.postRepository.findAll(dto);
+    const posts = await this.postRepository.findAll(dto);
+    return posts.map((p) => PostMapper.toDTO(p));
   }
 
   async findOneById(id: string): Promise<PostDTO> {
