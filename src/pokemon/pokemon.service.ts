@@ -5,12 +5,15 @@ import {
   PokemonListAPIResponse,
   PokemonReference,
 } from './types/poke-api.types';
-import { POKE_DEFAULT_LIMIT } from './constants/pokemon.constants';
+import {
+  POKE_API_URL,
+  POKE_DEFAULT_LIMIT,
+} from './constants/pokemon.constants';
 
 @Injectable()
 export class PokemonService {
   private static DEFAULT_LIMIT = POKE_DEFAULT_LIMIT;
-  private readonly baseUrl = 'https://pokeapi.co/api/v2/pokemon';
+  private readonly baseUrl = POKE_API_URL;
 
   constructor(private cache: PokemonCache) {}
 
