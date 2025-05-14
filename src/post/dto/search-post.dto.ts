@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsArray, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsOptional, IsString, IsUUID } from 'class-validator';
 
 export class SearchPostDTO {
   @ApiPropertyOptional({
@@ -13,7 +13,7 @@ export class SearchPostDTO {
 
   @ApiPropertyOptional({
     description:
-      'List of tags separated by commas. Use raw names insetad of IDs in this field.',
+      'List of tags separated by commas. Use raw names instead of IDs in this field.',
 
     example: 'tag,othertag',
   })
@@ -29,5 +29,6 @@ export class SearchPostDTO {
   })
   @IsString()
   @IsOptional()
+  @IsUUID()
   authorId?: string;
 }
