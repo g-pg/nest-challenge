@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:17
+    image: postgres:17.5
     container_name: nest-challenge
     restart: always
     ports:
