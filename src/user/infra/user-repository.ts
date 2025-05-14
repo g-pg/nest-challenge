@@ -17,17 +17,17 @@ export class UserRepository {
     return await this.ormRepo.save(ormUser);
   }
 
-  async findByUsername(username: string) {
+  async findByUsername(username: string): Promise<User | null> {
     const user = await this.ormRepo.findOneBy({ username });
     return user ? this._toDomain(user) : null;
   }
 
-  async findById(id: string) {
+  async findById(id: string): Promise<User | null> {
     const user = await this.ormRepo.findOneBy({ id });
     return user ? this._toDomain(user) : null;
   }
 
-  async findAdmin() {
+  async findAdmin(): Promise<User | null> {
     const user = await this.ormRepo.findOneBy({ role: UserRole.ADMIN });
     return user ? this._toDomain(user) : null;
   }
